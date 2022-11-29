@@ -1,6 +1,6 @@
 # 1차 시도
-# # number1 = int(input(" 첫번쨰 자연수 입력 "))
-# number2 = int(input(" 두 번쨰 자연수 입력 "))
+#number1 = int(input(" 첫번쨰 자연수 입력 "))
+#number2 = int(input(" 두 번쨰 자연수 입력 "))
 
 # print(number1 + number2)
 # print(number1 - number2)
@@ -9,7 +9,12 @@
 # print(number1 % number2)
 
 # * 위 코드에서의 잘못된 점 
-# 1. 문제에서는 한 번에 두 수를 다 받음
+# 1. 문제에서는 띄워쓰기를 기준으로 값을 구분하여 두 수를 한번에 다 받음 ex) 7 3
+#    근데 input은 엔터를 기준으로 값을 받음
+#    그래서 input 두 번으로 값 입력받으려면 입력값이 띄워쓰기(space)가 아니라 줄 바뀜(enter)로 되어 있어야함
+#    ex) 7
+#        3  이런 형태의 입력값일 때 input 두 번으로 값 받는 거임.
+#    -> input 두번이 아니라 input 한번에 split으로 입력데이터에서 값 구분해서 받아야 함.
 # 2. /는 실수 나누기임으로 원하는 자연수 형식의 몫이 아님
 
 #2nd
@@ -30,7 +35,6 @@ print(number1 % number2)
 number1, number2 = input(" 자연수 두개 입력").split()
 number1 = int(number1)
 number2 = int(number2)
-
 print(number1 + number2)
 print(number1 - number2)
 print(number1 * number2)
