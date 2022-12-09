@@ -78,7 +78,15 @@ for str in S:
     n = 0
     print(isPalindrome(str),n)
     
-
+# 전역 변수관련
+'''n의 특징
+1. recursion 호출 횟수를 세야함 -> recursion 안에서 증가 코드가 있어야함
+2. 문자열이 바뀔 때마다 n(recursion 호출 횟수)가 초기화 돼야함 -> 'for str in S'에서 n 초기화
+3. -> n은 'for str in S'에서 초기화 되고 함수 'recursion'에서 또 쓰임 = 쓰이는 곳과 초기화한 곳이 다름 = namespace?가 다름 => n을 쓰는 함수 'recursion'에서 n을 전역변수 선언!( global n )
+   -> 전역 변수로 썼기에 'recursion'의 return으로 넘기지 않아도 'for str in S'에서 그냥 바로 'recursion'에서 바뀐 n 값을 받을 수 있음
+'recursion'의 반환값(return) 0,1 특징
+1. 'recursion' 함수를 호출하면 나오는 값 -> 반환값으로 주면 됨
+2. 얘도 전역변수로 써도 되긴함 -> 근데 n처럼 계속 바뀌는 값이 아니고 'recursion'가 아닌 다른 곳에서 초기화하거나 값을 변경하지 않고 'recursion' 함수를 돌리면 나오는 값이기에 반환값으로만 줘도 충분'''
     
 
 

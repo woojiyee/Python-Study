@@ -62,7 +62,8 @@ for i in word:
 
 #3rd
 
-'''N = int(input("단어 개수 입력:"))
+'''
+N = int(input("단어 개수 입력:"))
 word =[]
 extralist = []
 
@@ -86,7 +87,7 @@ while문 쓰려다 실패
     
 for i in word:
     print(i)
- '''       
+'''       
 
  # 4th
  # (인터넷 찾아봄)
