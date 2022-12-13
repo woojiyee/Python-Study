@@ -27,3 +27,5 @@ if Rsum == Lsum :
     print("LUCKY")
 else:
     print("READY")
+
+# 소요 시간 약20분
