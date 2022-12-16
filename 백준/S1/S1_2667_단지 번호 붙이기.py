@@ -449,7 +449,7 @@ for i in cnt:
 ''' 
 
  #4th
-
+'''
 # 지도의 크기
 n = int(input())
 
@@ -573,4 +573,118 @@ print(len(cnt)-cnt.count(0))
 for i in cnt:
     if i > 0:
         print(i)
+'''
+
+#5th
+'''
+1. dfs 이용 -> 재귀함수 ( 이코테 예제 참고 )
+'''
+'''
+# 지도 크기
+n = int(input("지도 크기:"))
+
+# 지도
+map = [0 for _ in range(n)]
+
+# 하나의 단지 내에 집 갯수
+cnt = 0
+
+# 단지 갯수
+#group = 0
+group = list()
+
+for i in range(n):
+    map = list(int(input("집 여부:"))) #TypeError: 'int' object is not iterable
+
+def dfs(i,j,map):
+    # 해당 위치가 범위를 벗어나면 dfs를 끝내기
+    if i < 0 or i >= n or j < 0 or j >= n:
+        return False
+    
+    # 해당 위치에 집이 있으면
+    if map[i][j] == 1 :
+        # 한번 체킹한 위치는 다시 체킹되지 않게하기 위해 0으로 바꿔줌
+        map[i][j]  = 0
+        # 단지에 집 갯수
+        global cnt 
+        cnt += 1
+        # 해당 위치로부터 상하좌우 위치에 집이 있는지 체크
+        dfs[i][j-1]
+        dfs[i][j+1]
+        dfs[i-1][j]
+        dfs[i+1][j]
+        # 집이 있는 위치에서 시작해서 근처에 한 단지 체킹이 다 끝났을 때 단지 수 추가
+        #group += 1
+        group.append(cnt)
+        cnt = 0
+
+    # 해당 위치에 집이 없으면
+    return False
+    
+
+for i in range(n):
+    for j in range(n):
+        dfs(i,j,map)
+
+group.sort()
+
+print("단지 수:",len(group))
+
+for i in group:
+    print(i)
+'''
+
+#6th
+
+# 지도 크기
+n = int(input("지도 크기:"))
+
+# 지도
+map = []
+
+# 하나의 단지 내에 집 갯수
+cnt = 0
+
+# 단지 갯수
+group = list()
+
+for i in range(n):
+    map.append(list(input("집 여부:")))
+
+print("map:",map)
+
+def dfs(i,j,map):
+    # 해당 위치가 범위를 벗어나면 dfs를 끝내기
+    if i < 0 or i >= n or j < 0 or j >= n:
+        return False
+    # 해당 위치에 집이 있으면
+    if map[i][j] == '1' :
+        # 한번 체킹한 위치는 다시 체킹되지 않게하기 위해 0으로 바꿔줌
+        map[i][j]  = '0'
+        # 단지에 집 갯수
+        global cnt 
+        cnt += 1
+        # 해당 위치로부터 상하좌우 위치에 집이 있는지 체크
+        dfs(i,j-1,map)
+        dfs(i,j+1,map)
+        dfs(i-1,j,map)
+        dfs(i+1,j,map)
+        return True
+
+    # 해당 위치에 집이 없으면
+    return False
+    
+
+for i in range(n):
+    for j in range(n):
+        if dfs(i,j,map) == True:
+            group.append(cnt)
+            cnt = 0
+
+group.sort()
+
+print("단지 수:",len(group))
+
+for i in group:
+    print(i)
 
