@@ -26,3 +26,6 @@ original = [1,1,2,2,2,8]
 
 for i in range(6):
     print(original[i]-chess[i],end = ' ')
+
+# 입력값이 한 줄에 있음 -> 한번의 input으로 입력받을 수 있음 -> input을 for 안 돌려도 됨
+# 입력값이 한 줄에 띄워쓰기로 데이터를 구분해서 받음 -> split()이용

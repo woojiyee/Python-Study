@@ -1,4 +1,4 @@
-import sys
+# https://www.acmicpc.net/problem/15552
 
 #1st
 
@@ -13,7 +13,7 @@ input("prompt message") : input()은 매개변수에 입력 시 띄울 안내문
 sys.stdin.readline() 매개변수에는 한번에 읽을 수 있는 글자 수 크기로 정수 자료형을 받음"""
 
 #2nd
-
+'''
 # testcase 수만큼 입력을 받을 거니까 테스트케이스는 for문에서 숫자로 쓰임
 #->정수형으로 변환
 T = int(input("테스트케이스의 개수 입력:"))
@@ -29,3 +29,19 @@ for i in range(T):
 
 for i in range(T):
     print(sum[i])
+'''
+
+# 12.23.금 다시 풀어보기
+
+#1st
+import sys
+
+t = int(input())
+
+for i in range(t):
+    a, b = map(int,sys.stdin.readline().split())
+    print(a+b)
+
+# 알게된 점!
+# 무조건 입력을 다 하고 그 입력값을 저장 후, 출력을 안 해도 된다!
+# 코드에 따라 입력 받자마자 출력하여 따로 저장 없이 코드를 짤 수도 있다.
