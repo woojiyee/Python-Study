@@ -635,7 +635,7 @@ for i in group:
 '''
 
 #6th
-
+'''
 # 지도 크기
 n = int(input("지도 크기:"))
 
@@ -688,3 +688,57 @@ print("단지 수:",len(group))
 for i in group:
     print(i)
 
+'''
+
+
+# 12.29 다시 풀기
+
+# 1st
+n = int(input())
+# 집 여부 지도
+isEmpty = [[0 * n] for _ in range(n)]
+# 0*n 없애도 될랑가?
+# 단지 내 집 수
+count = 0
+countList = []
+
+
+def dfs(i,j,isEmpty):
+    global count
+    if 0 <= i < n and 0<= j <n:
+        if isEmpty[i][j] == 1 :
+            count += 1
+            isEmpty[i][j] = 0
+            dfs(i,j+1,isEmpty)
+            dfs(i,j-1,isEmpty)
+            dfs(i+1,j,isEmpty)
+            dfs(i-1,j,isEmpty)
+            
+for i in range(n):
+        isEmpty[i] = list(map(int,input()))
+
+print(isEmpty)
+        
+for i in range(n):
+    for j in range(n):
+        print("i,j,count",i,j,count)
+        # 한 단지 내의 집 개수 다 세고 집 개수 초기화 시커야 함 
+        # -> dfs 안에 하면 아직 한 단지내의 집들을 체킹 중일 때 초기화 시키는 격
+        # -> dfs 밖에 집 개수 초기화
+        count = 0
+        print("값 재할당 후 i,j,count",i,j,count)
+        dfs(i,j,isEmpty)
+        # 한 단지 내의 집 개수를 리스트에 추가하는 것도 한 단지당 리스트 원소 한개이기에 dfs 한 덩어리 끝나면 리스트에 추가하기
+        # dfs 안에다 리스트에 집 개수 추가하도록 하니까 단지마다가 아닌 집 마다 집 개수가 리스트의 원소로 추가돼버림
+        # 그냥 집 개수 count를 countList에 추가하니까 집 개수가 0인 경우도 리스트에 요소로 추가돼버림 
+        # -> 집 개수가 0이 아닌 경우만 리스트에 추가
+        if count !=0:
+            countList.append(count)
+        
+
+countList.sort()
+
+print(len(countList))
+
+for i in countList:
+    print(i)
