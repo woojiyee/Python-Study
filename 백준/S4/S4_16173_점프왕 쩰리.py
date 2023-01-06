@@ -105,7 +105,7 @@ dfs(0,0,gameMap)
 '''
 
 # 3rd
-'''    
+'''  
 # 구역 크기
 n = int(input())
 
@@ -157,6 +157,83 @@ def dfs(y,x):
 
 dfs(0,0)
 '''
+
+#4th
+''' 
+# 구역 크기
+n = int(input())
+
+# 구역 지도 리스트
+gameMap = [[] for _ in range(n)]
+
+for i in range(n):
+    gameMap[i] = list(map(int,input().split())) 
+
+def dfs(y,x):
+    # x,y가 아래,오른쪽으로만 이동하니까 0보다 작을 경우는 없음 그래서 x,y가 n 미만이라면
+    # 게임 범위 안
+    if n > x and n > y:
+        # 이동된 위치가 승리 지점이라면
+        if gameMap[y][x] == -1:
+            print("HaruHaru")
+            return True# return 안쓰니까 HaruHaru 여러번 출력 됨
+        # 우측으로 칸에 쓰인 숫자만큼 이동
+        dfs(y, x + gameMap[y][x])
+        # 하측으로 칸에 쓰인 숫자만큼 이동
+        dfs(y + gameMap[y][x],x)
+        return False
+        
+
+if dfs(0,0) == False:
+    print("Hing")
+'''
+# visited[][] 방문여부를 체킹하는 리스트를 안 쓰고 
+# 승리 지점 도달 가능이면 haruharu, 도달 불가능이면 hing을 출력하려니 어케 짜야할지 몰겠음
+# -> 그냥 방문한 노드를 visited리스트에 다 체크해서 이문제 같은 경우는 맨우측하단만 방문한 적 있으면 되는거니까 dfs 다 돌리고 
+# visited[n-1][n-1]의 방문 기록 여부에 따라 다르게 출력시켜주면 되는 듯!
+
+# 5th
+
+# 구역 크기
+n = int(input())
+
+# 구역 지도 리스트
+gameMap = [[] for _ in range(n)]
+
+for i in range(n):
+    gameMap[i] = list(map(int,input().split())) 
+
+visited = [[False]* n for _ in range(n)]
+
+def dfs(y,x):
+    # x,y가 아래,오른쪽으로만 이동하니까 0보다 작을 경우는 없음 그래서 x,y가 n 미만이라면
+    # 게임 범위 안
+    if n > x and n > y:
+        # 이전에 방문한 적 없으면 돌리기
+        # 앞에 루트가 어떻든 같은 노드에서 시작한 이후의 루트는 같을 거임
+        # -> 같은 노드를 첫방문한 루트와 재방문한 노드의 승리 지점 도달 가능 여부가 같을 거임
+        # -> 2번 이상 확인 할 필요 없음, 같은 결과값이니 한 루트만 확인하는게 효율적
+        if visited[y][x] == False:
+            visited[y][x] = True
+            # 이동된 위치가 승리 지점이라면
+            if gameMap[y][x] == -1:
+                return 
+            # -1 체킹을 이 안에서 안 해도 밖에서 확인 할 거라 필수는 아니지만
+            # 이미 젤리가 승리할 수 있는 걸 안다면 그 이후의 다른 루트는 확인할 필요 없음
+            # -> 효율적으로 원하는 답?을 찾았으면 멈추도록 -1일 때 dfs 끝내기
+
+            # 우측으로 칸에 쓰인 숫자만큼 이동
+            dfs(y, x + gameMap[y][x])
+            # 하측으로 칸에 쓰인 숫자만큼 이동
+            dfs(y + gameMap[y][x],x)
+        
+
+dfs(0,0)
+if visited[n-1][n-1] == True:
+    print("HaruHaru")
+else:
+    print("Hing")
+
 
 
 
@@ -210,7 +287,7 @@ else:
 '''
 # 위 코드로 하면 백준서 메모리 초과 떠서 수정하다 맞춘 코드
 # BFS
-
+'''
 # Nst
 from collections import deque
 
@@ -251,7 +328,7 @@ if visited[n-1][n-1] == True:
     print("HaruHaru")
 else:
     print("Hing")
-
+'''
 # 재방문하면 안 된다는 조건이 없어서 재방문해도 상관없을 거 같아서 
 # 재방문한 경우 continue하는 코드 안 했더니 '메모리 초과' 뜨고
 # 재방문 체킹하는 코드 추가 했더니 '맞았습니다' 뜸 ^^
