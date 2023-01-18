@@ -85,3 +85,5 @@ for i in targets:
 
 # print(1/0)을 탐색 함수 안에 넣을 수도 있고 아님 return부분에 True나 False를 넣고
 # 맨 아래 target 돌리는 for문에 함수의 리턴값이 True면 1 출력 이런식으로도 가능
+
+# 푸는데 25분가량 걸림
