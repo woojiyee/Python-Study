@@ -87,3 +87,7 @@ for i in targets:
 # 맨 아래 target 돌리는 for문에 함수의 리턴값이 True면 1 출력 이런식으로도 가능
 
 # 푸는데 25분가량 걸림
+
+# return을 안 써도 정답이 됨 ( binary_search()안에 binary 부르는 재귀 코드를 return 안 쓰고 써도 정답처리됨)
+# binary_search() 매개변수에 array를 빼도 정답처리 됨
+# 리스트는 이미 전역변수기에 매개변수로 안 써줘도 밖에서 선언했다면 함수 안에서 바로 사용 가능!
