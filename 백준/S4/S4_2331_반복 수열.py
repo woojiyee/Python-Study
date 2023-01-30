@@ -1,6 +1,12 @@
 # 수 A를 입력받고  수열 D를 구해서 리스트에 저장
 # 중복 체킹 ( 계산된 항이 이전에 있던 항과 같은 값인가? -> in 이용 )
 
+# 수열의 현재 항은 이전 항을 계산해서 만들어짐 
+# -> 현재 항이 이전에 나온 적 있다?
+# -> 그 뒤에 항들도 반복 될거임
+# -> 그래서 이전에 나온 적 있는 첫 값(항)만 찾으면 
+# 그 전 항들까지의 길이가 문제의 답
+
 # 1st
 # 수열 첫 항 a1, 지수 p
 '''
@@ -8,8 +14,11 @@ a , p = map(int,input().split())
 # 수열 d
 d = list()
 '''
+
+
 # 코드를 어케 짜야할지 가늠도 안 감
 # 블로그 참고
+
 
 def next(a,p):
     a = str(a)
@@ -37,3 +46,24 @@ a, p = map(int,input().split())
 count = 1
 # 첫 항의 dfs만 돌려도 dfs 함수 안에서 그 다음 항의 dfs가 실행되기에 따로 for문이 필요 없음
 print(dfs(a,p,count,check))
+
+
+# 스터디 희선이가 올려준 코드
+# # 반복문 풀이
+'''
+A, P = map(int, input().split(' '))
+D = [A]  # 수열
+
+while True:
+    temp = 0
+
+    for s in str(D[-1]):
+         temp += int(s) ** P
+
+    if temp in D:
+        break
+
+    D.append(temp)
+
+print(D.index(temp))
+'''

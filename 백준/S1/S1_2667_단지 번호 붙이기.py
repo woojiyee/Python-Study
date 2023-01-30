@@ -697,7 +697,8 @@ for i in group:
 n = int(input())
 # 집 여부 지도
 isEmpty = [[0 * n] for _ in range(n)]
-# 0*n 없애도 될랑가?
+# isEmpty = [[0] for _ in range(n)]
+# 0*n 없애도 될랑가? ㅇㅇ
 # 단지 내 집 수
 count = 0
 countList = []
