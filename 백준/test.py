@@ -83,8 +83,15 @@ for i in range(4,0,-1):
 
 for i in range(4,-1,-1):
     print(i,end=' ') # 4 3 2 1 0  
-'''
 
+array = [[1,2,3,4]]
+for i in range(len(array)):
+    print(i) #0
+    print(array[i][-1]) #4
+'''
+array = [[2]]
+array.append(array[0]+[3])
+print(array)
 #tuple 튜플 () 
 # 인덱싱 가능
 # 리스트와 유사 (부분 수정 안 되는 것만 다른 듯)
@@ -296,9 +303,12 @@ print("li:",li) # li: ['sbs']'''
 
 # 이차원 리스트 append
 # 이차원 리스트라도 리스트[] 하면 알아서 행 인덱스의 리스트로 연산 됨.
-'''list = [[1,2],[1,3],[2,3]]
+'''
+list = [[1,2],[1,3],[2,3]]
 list[1].append(2)
-print(list)'''
+print(list) # [[1,2],[1,3,2],[2,3]]
+print(list[1][-1]) # 2
+'''
 '''
 # 3차원 리스트
 list = [[[0]*2 for _ in range(3)] for _ in range(5)]
@@ -393,8 +403,12 @@ a,b = 3,5
 c=7;d=9
 print(a,b,c,d)
 '''
+# 딕셔너리
+'''
 d = {"과일":["사과,바나나"],"갯수":3}
 print(d["갯수"])
 print(d.get("갯수"))
 print(d.get("동물"))
 print(d["동물"])
+'''
+
