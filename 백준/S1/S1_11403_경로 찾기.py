@@ -70,4 +70,11 @@ for i in range(n):
     visited = [0] * n
     bfs(i)
 
-print(answer)
+# print(answer) # 백준 문제에서 원하는 출력이 아니어서 "틀렸습니다" 뜸
+
+for i in answer:
+    for j in i:
+        print(j,end=" ")
+    print()
+
+# 백준 "맞았습니다"
