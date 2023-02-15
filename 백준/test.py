@@ -411,4 +411,14 @@ print(d.get("갯수"))
 print(d.get("동물"))
 print(d["동물"])
 '''
+'''
+list = [(3,1,5),(2,7,3),(6,5,11)]
+print(list)
+# 리스트의 원소는 튜플 (3,1,5)와 (2,7,3)과 (6,5,11)
+# 튜플의 원소
+# 튜플 (3,1,5)의 원소: 3과 1과 5
+list.sort()
+print(list)'''
 
+answer = [[0 for _ in range(3)]  for i in range(4)]
+print(answer)
