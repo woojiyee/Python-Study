@@ -89,9 +89,9 @@ for i in range(len(array)):
     print(i) #0
     print(array[i][-1]) #4
 '''
-array = [[2]]
+'''array = [[2]]
 array.append(array[0]+[3])
-print(array)
+print(array)'''
 #tuple 튜플 () 
 # 인덱싱 가능
 # 리스트와 유사 (부분 수정 안 되는 것만 다른 듯)
@@ -420,5 +420,7 @@ print(list)
 list.sort()
 print(list)'''
 
-answer = [[0 for _ in range(3)]  for i in range(4)]
-print(answer)
+'''answer = [[0 for _ in range(3)]  for i in range(4)]
+print(answer)'''
+
+
