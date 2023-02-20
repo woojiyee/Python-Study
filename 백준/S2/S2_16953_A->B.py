@@ -76,3 +76,60 @@ if check != False:
 else:
     print(-1)
 
+# 2nd
+# 스터디 미팅 후 다른 스터디원 코드 참고
+# 알게 된 다른 방법
+
+a, b = map(int,input().split())
+
+# 연산 횟수
+# 출력시 연산 횟수+1 해줘야하기에 처음부터 초기값을 1로 설정
+cnt = 1
+
+# a가 연산하여 b가 될 수 있는지 여부
+check = True
+
+def possibility(a,b):
+    # 연산의 결과값
+    num = b
+    global cnt
+    # check를 global 선언 안 해주면 
+    # 아래서 check = False라고 값을 할당해줘서? 
+    # 전역 변수가 아닌 지역 변수로 함수 내에서만 check값이 False가 되고 함수 밖은 변하지 않음
+    global check
+    # b가 연산 후의 값이 a와 같을 때까지 반복
+    while num != a:
+        # a보다 작아지면 안 됨
+        if num < a:
+            cnt = -1
+            break
+        # 1의 자리수가 1이면
+        # = 10으로 나눈 나머지가 1이면
+        if num % 10 == 1:
+            # 1의 자리수 떼주기
+            # -> 10의 자리수까지만 남겨놓기 = 10으로 나눈 몫
+            # (주의) 실수 나누기 하면 61일 때 10으로 나눈 몫이 6.1이 됨
+            # 근데 여기선 1을 떼고 6만 원하니 정수 나누기로 해줘야함
+            num = num//10
+            # 연산 했으니 연산 횟수 1 증가
+            cnt += 1
+        # 2로 나누어 떨어지면
+        # = 2로 나눈 나머지가 0이면
+        elif num % 2 == 0:
+            num = num/2
+            # 연산 했으니 연산 횟수 1 증가
+            cnt += 1
+        # 더 이상 1의 자리수가 1이 아니고 2로도 나누어 떨어지지 않는다면 a가 b가 될 수 없는 것
+        else:
+            cnt = -1
+            break
+
+
+possibility(a,b)
+
+print(cnt)
+# 1st와 차이
+# a를 b로 만들 수 없을 때 else문으로 -1를 print해도 되지만
+# 그냥 안 되는 경우 cnt = -1을 재할당하고 print는 if,else로 분기 안 하고 print(cnt) 한 번만 해줘도 가능
+# print를 분기 처리 없이 할 거기에 문제상 연산 횟수+1 해야하는 건 연산 횟수 cnt 초기화를 1로 함으로써 해결
+
