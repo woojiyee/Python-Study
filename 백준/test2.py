@@ -1,4 +1,4 @@
-a = list()
+'''a = list()
 print("a",a) # []
 
 a.append(3) # [3]
@@ -14,4 +14,9 @@ d = (5,6)
 print("d",d) # (5, 6)
 
 e = list(d)
-print("e",e) # [5, 6]
+print("e",e) # [5, 6]'''
+
+q = [[1,2,3],[4,5,6]]
+
+for i in q:
+    print("i[1]",i[1])
