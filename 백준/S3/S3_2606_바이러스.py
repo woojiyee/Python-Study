@@ -1,0 +1,40 @@
+# 1st
+
+from collections import deque
+
+# 컴퓨터 수
+n = int(input())
+
+# 컴퓨터 연결 수
+m = int(input())
+
+# 인덱스를 1부터 시작
+graph = [[] for i in range(n+1)]
+visited = [0 for i in range(n+1)]
+# visited = [[0] for i in range(n+1)] 
+# 이렇게 썼더니 visited [[0],[0],..]로 되서
+# bfs 안 if문에서 if visited[i] != 0에서 [0] 은 0이 아니기에 다 continue 처리 됨 
+
+for i in range(m):
+    a, b = map(int,input().split())
+    graph[a].append(b)
+    graph[b].append(a)
+
+def bfs(start):
+    q = deque()
+    q.append(start)
+
+    while q:
+        node = q.popleft()
+        visited[node] = 1
+        for i in graph[node]:
+            if visited[i] != 0:
+                continue
+            q.append(i)
+
+bfs(1)            
+answer = visited.count(1)
+
+# 시작하는 노드는 감염된 노드로 치지 않는데
+# 시작하는 노드도 bfs 안 while문에서 visited = 1로 처리되어 count됨 -> -1 해주기
+print(answer - 1)
