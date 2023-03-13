@@ -47,3 +47,4 @@ visited = [0 for i in range(n+1)]
 bfs(v)
 
 # 백준 맞았습니다
+# + 위 코드에서 방문 체크를 pop할 때로 바꾸면 백준 출력 초과 뜸

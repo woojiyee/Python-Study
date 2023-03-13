@@ -1,4 +1,4 @@
-# 1st
+
 # 문제
 '''
 직사각형이 주어지면 직사각형이 없는 부분이 몇개의 영역으로 나뉜다
@@ -9,7 +9,8 @@
 직사각형이 없는 부분만 bfs를 돌리기
 '''
 
-
+# 1st ( bfs )
+'''
 from collections import deque
 
 # 눈금 간격 m*n, 직사각형의 개수
@@ -77,9 +78,61 @@ print(cnt)
 for i in w:
     print(i, end = ' ')
 
-# 처음엔 직사각형 유뮤 리스트와 방문 유뮤 리스트를 별도로 선언하고 코드 작성
+# 처음엔 직사각형 유뮤 리스트와 방문 유뮤 리스트를 별도로 선언하고 코드 작성 
+# (graph리스트 있는 코드로 돌려도 백준 맞았습니다 뜸)
 # 근데 걍 결국엔 직사각형 있는 부분도 방문을 안 하겠단 의미니 
 # 직사각형 있는 부분을 방문 못하게 visited값을 1로 두면 됨
 # 직사각형 유무 리스트 없이 방문 체킹 리스트 하나만 써서 코드 짬
 
 # 백준 맞았습니다.
+
+# + 방문 체크를 pop할 때 하면 백준 시간 초과 뜸
+'''
+
+# 2nd ( dfs )
+
+# 모눈 종이 세로(행), 가로(열), 직사각형 개수
+m, n, k = map(int,input().split())
+
+# 모눈 종이(직사각형 여부) & 방문 체크
+visited = [[0]* n for _ in range(m)]
+
+for i in range(k):
+    LeftBottomX, LeftBottomY, RightTopX, RightTopY = map(int,input().split())
+
+    for i in range(LeftBottomX, RightTopX):
+        for j in range(LeftBottomY, RightTopY):
+            visited[j][i] = 1
+
+# 상하좌우로 이동할 때 쓸 리스트
+dy = [1,-1,0,0]
+dx = [0,0,-1,1]
+
+def dfs(y,x):
+    global cnt
+    visited[y][x] = 1
+    cnt += 1
+    for i in range(4):
+        ny = y + dy[i]
+        nx = x + dx[i]
+        if visited[ny][nx] == 0:
+            if 0<= ny < m and 0 <= nx < n:
+                dfs(ny,nx)
+
+answer = []
+section = 0
+
+for i in range(m):
+    for j in range(n):
+        if visited[i][j] == 0:
+            cnt = 0
+            dfs(i,j)
+            answer.append(cnt)
+            section += 1
+
+print(section)
+
+answer.sort()
+print(*answer)
+
+# 백준 맞았습니다 뜸
