@@ -84,6 +84,8 @@ def binary(start,end):
 print(binary(1,graph[-1]))
 '''
 # 2nd 백준 컴파일 에러 뜸
+# 이유: 시작점 또는 끝점 바꿀 때 걍 재귀하는 게 아니라
+#      return으로 재귀해야함
 # vscode서 돌려도 None 출력
 
 
