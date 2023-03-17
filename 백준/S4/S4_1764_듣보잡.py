@@ -26,9 +26,14 @@ def binary(list,start,end,target):
 '''
 
 # 2nd
+# 아이디어
+'''
+문자열도 첫글자 a,b,c 또는 ㄱ,ㄴ,ㄷ으로 크기 비교 가능 -> 이걸 이용
+중간값 계산은 (시작값 + 끝값)//2라 숫자여야 함 -> 인덱스 이용
+타겟이 인덱스가 mid인 문자열보다 크다 = 사전순으로 뒤에있다를 의미
+리스트도 정렬해놨으니 사전순으로 되어있음 시작값을 미드 뒤로 옮기기 
+'''
 
-import sys
-sys.setrecursionlimit(10000)
 # 듣도 못한 사람의 수, 보도 못한 사람의 수
 n , m = map(int,input().split())
 
@@ -41,6 +46,7 @@ for i in range(n):
 for i in range(m):
     noSee.append(input())
 
+# 문자열이 있는 리스트를 sort하면 ㄱ,ㄴ,ㄷ순으로 정렬됨
 noListen.sort()
 noSee.sort()
 
