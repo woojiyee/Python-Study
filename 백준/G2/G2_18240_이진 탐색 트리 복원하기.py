@@ -337,13 +337,11 @@ while len(list) < n:
         for j in range(n):
             if i-1 == list[j][1]:
                 if i in list[0:j-1]:
+                    print()# if문 안 코드를 안 쓰면 빨간 줄 떠서 일단 씀
+            
+# 코드를 어떻게 짜야할지 모르겠음 
 
 
 
-
-for i in range(1,n+1):
-    for j in range(n):
-        if list[j][0] == i:
-            print(j+1,end = ' ')
 
 

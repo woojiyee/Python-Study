@@ -41,7 +41,7 @@ n, c = map(int,input().split())
 
 home = [int(input()) for _ in range(n)]
 
-# binary()에서 mid 거리 이상 간격의 집을 체킹 할거임
+# 이분 탐색에서 mid 거리 이상 간격의 집을 체킹 할거임
 # 그러면 home이 일직선상에 순서대로 있어야 공유기 설치한 마즈막 집을 변수에 저장해서 그 집에서부터 mid거리 체킹이 가능
 # 예 ) 
 # home = [1,2,4,8],mid=2 
