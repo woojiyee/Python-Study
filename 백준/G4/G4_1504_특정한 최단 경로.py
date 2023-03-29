@@ -86,7 +86,6 @@ v1, v2 = map(int,input().split())
 
 INF = 1e9
 
-
 def dijkstra(start):
     distance = [INF] * (n+1)
     # 파이썬에서 리스트는 전역변수 아닌가?

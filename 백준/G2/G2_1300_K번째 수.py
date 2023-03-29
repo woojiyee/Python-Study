@@ -43,6 +43,7 @@ while start <= end:
         cnt += min(mid // i, n)
         # cnt += mid // i
         # min 안 해주면 백준 틀렸습니다 뜸
+        # 한 행에 mid보다 작은 수의 개수는 열의 개수를 넘을 수 없음 -> min으로 열의 개수 n 처리
 
     if cnt >= k:
         answer = mid

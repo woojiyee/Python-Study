@@ -339,5 +339,6 @@ for i in range(n):
     graph = [[0]* l for _ in range(l)]
     move(start,end,l)
 
-Q. 근데 답 나오면 멈추게 하는 코드 4th까지의 코드처럼 짜면 최소 횟수에서 안 걸리나? 같은 좌표를 다시 오지 않고 첨 왔을 때 return만나서 출력하는 거 아닌가?
+# 백준 정답입니다
+
 

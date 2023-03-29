@@ -202,16 +202,12 @@ for i in range(n):
 # list의 원소인 리스트에 이득 거리가 제일 처음 원소이기에 이득거리를 기준으로 정렬됨
 list.sort(reverse=True)
 
-# list = list[:][1:]
-
 # 입력값을 다 리스트에 저장한 것이 아니기에 리스트 길이를 새로 구함
 length = len(list)
 
 ll = []
 
 for i in range(length):
-    # 이득 거리가 가장 큰 지름길을 넣어줌
-    # 이득 거리는 제외한 원소들만 넣어줌
     q = deque([list[i]])
     ll.append(q)
 
@@ -219,7 +215,7 @@ def distance(k):
     q = ll[k]
     # 시작위치
     start = 0
-    # 거리
+    # 총 이동 거리
     answer = 0
     for i in range(length):
         if i != k:
@@ -230,10 +226,6 @@ def distance(k):
                     extra = q.pop()
                     q.append(list[i])
                     q.append(extra)
-                    #idx = q.index(j)
-                    #q.insert(idx,list[i])
-                    # append하게 되면 큐 원소가 생김 현재 포문이 큐 원소만큼 도는거라 꼬임
-                    # 그래서 append하고 큐 for문 나가게 break하기
                     break
                 # 체킹 중인 지름길의 시작값이 선택된 지름길의 종료값보다 크다면
                 elif j[2] <= list[i][1]:
@@ -250,7 +242,6 @@ def distance(k):
     
     while q:
         a, qStart, qEnd, qDis = q.popleft()
-        # 계속 거리는 추가되어야하므로 재할당 =이 아니라 +=으로!!
         answer += qStart - start + qDis
         start = qEnd
 
@@ -268,7 +259,7 @@ print(minDis)
 '''
 
 # 3th 주석 지운 거
-
+'''
 from collections import deque
 
 n, dis = map(int,input().split())
@@ -318,6 +309,70 @@ def distance(k):
         start = qEnd
 
     answer += dis - qEnd
+
+    return answer
+
+minDis = 10000
+
+for k in range(length):
+    minDis = min(minDis,distance(k))
+
+print(minDis)'''
+
+# 4th
+
+
+from collections import deque
+
+n, dis = map(int,input().split())
+list = []
+
+for i in range(n):
+    s, e, d = map(int,input().split())
+    if e > dis:
+        continue
+    if e - s > d:
+        list.append([(e - s)- d,s,e,d])
+
+list.sort(reverse=True)
+
+length = len(list)
+
+ll = []
+
+for i in range(length):
+    q = deque([list[i]])
+    ll.append(q)
+
+def distance(k):
+    q = ll[k]
+    start = 0
+    benefit = 0
+    for i in range(length):
+        if i != k:
+            for j in q:
+                if j[1] >= list[i][2]:
+                    extra = q.pop()
+                    q.append(list[i])
+                    q.append(extra)
+                    break
+                elif j[2] <= list[i][1]:
+                    if len(q) == 1:
+                        q.append(list[i])
+                        break
+                    else:
+                        continue
+                else:
+                    break
+    
+    while q:
+        b, qStart, qEnd, qDis = q.popleft()
+        benefit += b
+        # 3th처럼 끊기는 거 다 체크 안해도
+        # 결국 이득 거리만큼 전체 거리에서 줄어든거니 이득 거리 총합을 구해서
+        # 전체 거리서 이득 거리 빼면 지름길을 이용한 루트의 이동 거리인 셈
+
+    answer = dis - benefit
 
     return answer
 

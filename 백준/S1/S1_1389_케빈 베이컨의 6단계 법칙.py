@@ -27,6 +27,7 @@ def bfs(v):
             # not False = True 이므로 실행됨
                 # 탐색하기 위한 횟수를 체크한다
                 visited[i] = visited[target] + 1
+                Q. 이 부분이 이해 안 감 ㅠ
                 q.append(i)
 
 # 유저의 수, 친구 관계의 수
