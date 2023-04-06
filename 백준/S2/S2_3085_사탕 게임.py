@@ -45,6 +45,7 @@ for i in range(n):
 # 모르겠음 ㅠ
 
 # 2nd (블로그)
+# https://ji-gwang.tistory.com/245
 #아이디어
 '''
 브루트포스로 다 돌린다. n이 최대 50이므로 가능
@@ -110,6 +111,8 @@ for i in range(n):
             array[j + 1][i], array[j][i] = array[j][i], array[j + 1][i]
 
 print(maxCount) #색이 같은 사탕개수 최대값을 출력
+
+# 백준 맞았습니다.
 
 
 

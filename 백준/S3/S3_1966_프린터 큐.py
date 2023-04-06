@@ -124,7 +124,6 @@ for i in range(t):
 
 # 5th
 
-
 from collections import deque
 
 # 테스트 케이스 수
@@ -155,3 +154,5 @@ for i in range(t):
             
         else:
             q.append(check)
+
+# 백준 맞았습니다.
