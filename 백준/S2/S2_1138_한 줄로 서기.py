@@ -78,6 +78,41 @@ print(*location)
 
 # 2nd
 
+n = int(input())
+
+# 빈 자리: 0, 각 위치에 서는 키 번호? 넣기
+location = [0] * n
+
+# 입력받는 데이터
+# 키가 1인 사람부터 차례대로 왼쪽에 서는 사람 중 자신보다 큰 사람 수
+left = list(map(int,input().split()))
+
+for i in range(n):
+    # 해당 자리보다 왼쪽에 빈 자리수 체크
+    cnt = 0
+    for j in range(n):
+        # j-1번째(j 앞까지의) 빈 자리수 == 키가 i인 사람의 왼쪽 큰 사람 수 
+        if cnt == left[i]:
+            # j번째가 빈 자리인가
+            if location[j] == 0:
+                # 빈 자리면 j번째에 키가 i+1인 사람 세우기
+                # 키는 1부터 시작하는데 i는 0부터 시작하기에 i+1
+                location[j] = i+1
+                # 자리에 세웠으면 다음 자리들 체크 할 필요 없음
+                # 다음 키의 사람 for문 돌리면 됨
+                break
+            # 빈 자리가 아니고 이미 다른이가 서있다면 다음 오른쪽 자리로 넘어가기
+            # 이미 j번째가 빈자리가 아님을 아니까 굳이 아래 if문을 돌릴 필요가 없음
+            continue
+        # j 자리가 빈자리면 빈자리수 + 1
+        if location[j] == 0:
+            cnt += 1
+
+print(*location)
+
+# 2nd 백준 맞았습니다.
+
+# 3rd (2nd에서 중복된 부분 수정)
 
 n = int(input())
 
@@ -88,12 +123,20 @@ left = list(map(int,input().split()))
 for i in range(n):
     cnt = 0
     for j in range(n):
-        if cnt == left[i]:
-            if location[j] == 0:
-                location[j] = i+1
-                break
-            continue
+        # 해당 자리가 빈 자리인지 먼저 체크
         if location[j] == 0:
+            # 빈 자리이면서 
+            # (해당 자리 앞자리까지의 빈자리수 = i번째 키의 왼쪽 사람수) 조건을 만족할 때
+            # 해당 자리에 i번째 키 세우기
+            # (키는 1부터 시작, but i는 0부터 시작 -> i+1)
+            if cnt == left[i]:
+                location[j] = i+1
+                # 자리에 세웠으면 다음 자리들 체크 할 필요 없음
+                # 다음 키의 사람 for문 돌리면 됨
+                break
+            # 빈 자리일 때 빈 자리수 +1
             cnt += 1
 
 print(*location)
+
+# 3rd 백준 맞았습니다.
