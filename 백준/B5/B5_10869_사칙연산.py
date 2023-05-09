@@ -32,11 +32,27 @@ print(number1 % number2)
     그러나 input() 함수 안에는 list 형식 올 수 없음!'''
 
 #3rd
-number1, number2 = input(" 자연수 두개 입력").split()
+'''number1, number2 = input(" 자연수 두개 입력").split()
 number1 = int(number1)
 number2 = int(number2)
 print(number1 + number2)
 print(number1 - number2)
 print(number1 * number2)
 print(number1 // number2)
-print(number1 % number2)
+print(number1 % number2)'''
+
+
+
+# 복습 풀기
+
+a, b = map(int,input().split())
+
+print(a+b)
+print(a-b)
+print(a*b)
+# 1st print(a/b) # 백준 틀렸습니다.
+print(a//b)
+print(a%b)
+
+# 백준 맞았습니다.
+# 몫은 자연수 나누기s
