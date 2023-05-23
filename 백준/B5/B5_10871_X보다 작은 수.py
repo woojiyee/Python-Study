@@ -17,4 +17,20 @@ for i in range(n):
         # 그냥 print는 자동 개행(기본값으로 end = "\n") -> 출력 내용 마즈막에 붙일 문자를 end 매개변수를 이용해 띄워쓰기로 변경
 
 
+
+# 5개월 가량 이후 복습
+
+# 1st
+
+n, x = map(int,input().split())
+
+arr = list(map(int,input().split()))
+
+for i in arr:
+    if i < x:
+        print(i,end = ' ') 
+
+# 백준 맞았습니다.
+
+
         

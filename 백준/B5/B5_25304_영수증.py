@@ -22,6 +22,7 @@ else:
     -> range()를 사용해서 정수를 iterable로 만들어 줌"""
     
 #2nd
+'''
 #금액과 종류 수는 다른 줄로 받음 -> input 2개
 totalReceipt = int(input("영수증의 총 금액을 입력하시오"))
 totalTypeCount = int(input("구매한 물품의 종류의 수를 입력하시오"))
@@ -38,6 +39,68 @@ if totalReceipt == totalPrice:
     print("Yes")
 else:
     print("No")
-
+'''
 # 2nd 코드 처럼 백준 제출하면 출력 초과 뜸, 백준에서는 yes,no만 출력하길 원하는데
 # 내 코드는 input에 값 입력받을 때 뜨는 문자열도 출력 됨 => 출력 초과
+
+
+# 5개월가량 후 복습
+
+# 1st
+'''
+# 영수증에 적힌 총금액
+receiptSum = int(input())
+# 영수증에 적힌 구매한 물건의 종류의 수
+n = int(input())
+
+list = [0 for _ in range(n)]
+
+# 가격과 개수로 계산한 총 금액 (영수증에 적힌 총 금액과 비교할 변수)
+sum = 0
+
+# 각 물건의 가격,개수
+for i in range(n):
+    list[i] = list(map(int,input().split()))
+
+for i in range(n):
+    sum += list[i][0] * list[i][1]
+    if sum > receiptSum :
+        break
+
+if sum == receiptSum:
+    print("Yes")
+else:
+    print("No")
+'''
+# TypeError: 'list' object is not callable 뜸
+# list() 함수를 쓸 때 변수명으로도 list를 쓸 시, 적힌 list가 변수로 쓰인건지 함수로 쓰인건지 구분을 못해서 에러 뜨는 듯
+
+# 2nd
+
+# 영수증에 적힌 총금액
+receiptSum = int(input())
+# 영수증에 적힌 구매한 물건의 종류의 수
+n = int(input())
+
+info = [0 for _ in range(n)]
+
+# 가격과 개수로 계산한 총 금액 (영수증에 적힌 총 금액과 비교할 변수)
+sum = 0
+
+# 각 물건의 가격,개수
+for i in range(n):
+    info[i] = list(map(int,input().split()))
+
+for i in range(n):
+    sum += info[i][0] * info[i][1]
+    if sum > receiptSum :
+        break
+
+if sum == receiptSum:
+    print("Yes")
+else:
+    print("No")
+
+# 백준 맞았습니다.
+# 1st 코드에서 리스트 변수명만 list가 아닌 것으로 변경한 코드
+
